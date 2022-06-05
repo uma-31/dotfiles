@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+DOTFILES_ROOT="$(cd "$(dirname "$(realpath "$0")")"; cd ..; pwd)"
+
+source "$DOTFILES_ROOT/lib/utils.sh"
+
+function usage() {
+  echo ''
+  echo 'dotfiles <command> [...args]'
+  echo ''
+  echo 'command:'
+  echo '  install   Install dotfiles.'
+  echo ''
+}
+
+if [ $# = 0 ]; then
+  usage
+  exit 0
+fi
+
+case "$1" in
+  'install' | 'uninstall' )
+    cmd="$1"
+    shift
+    bash "$DOTFILES_ROOT/libexec/dotfiles-$cmd.sh" "$@"
+    ;;
+  * )
+    error "'$1' is not a valid command."
+    ;;
+esac
