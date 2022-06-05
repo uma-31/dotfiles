@@ -1,4 +1,6 @@
-DOTFILES_ROOT="$(cd "$(dirname "$0")"; cd ..; pwd)"
+#!/usr/bin/env bash
+
+DOTFILES_ROOT="$(cd "$(dirname "$(realpath "$0")")"; cd ..; pwd)"
 KERNEL="$(uname -s)"
 
 source "$DOTFILES_ROOT/lib/config.sh"
