@@ -9,7 +9,8 @@ function usage() {
   echo 'dotfiles <command> [...args]'
   echo ''
   echo 'command:'
-  echo '  install   Install dotfiles.'
+  echo '  install     Install dotfiles.'
+  echo '  uninstall   Uninstall dotfiles.'
   echo ''
 }
 
