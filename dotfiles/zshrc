@@ -29,3 +29,4 @@ fi
 
 # Aliases
 alias c='clear'
+alias ls='ls --color=auto'
