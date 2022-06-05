@@ -1,6 +1,6 @@
 # dotfiles
 
-My Dotfiles
+My Dotfiles.
 
 ## Supported OS
 
@@ -25,10 +25,22 @@ $ ./bin/dotfiles install
 
 - [zplug](https://github.com/zplug/zplug)
   - Plugin manager for zsh
+  - Install with:
+    ```shell
+    $ git clone https://github.com/zplug/zplug.git "$HOME/.zplug"
+    ```
 - [pyenv](https://github.com/pyenv/pyenv)
   - Version manager for python
+  - Install with:
+    ```shell
+    $ git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
+    ```
 - [nodenv](https://github.com/nodenv/nodenv)
   - Version manager for node
+  - Install with:
+    ```shell
+    $ git clone https://github.com/nodenv/nodenv.git "$HOME/.nodenv"
+    ```
 
 4. Restart terminal or source `.zshrc`
 
