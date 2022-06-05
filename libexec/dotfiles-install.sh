@@ -4,7 +4,7 @@ KERNEL="$(uname -s)"
 source "$DOTFILES_ROOT/lib/config.sh"
 source "$DOTFILES_ROOT/lib/utils.sh"
 
-function install-to-linux() {
+function install() {
   for ((i = 0; i < ${#INSTALL_CONFIGS[@]}; i++)); do
     config="${INSTALL_CONFIGS[$i]}"
 
@@ -17,8 +17,8 @@ function install-to-linux() {
 }
 
 case "$KERNEL" in
-  'Linux' )
-    install-to-linux
+  'Linux' | 'Drawin' )
+    install
     ;;
   * )
     error "'$KERNEL' is not supported."

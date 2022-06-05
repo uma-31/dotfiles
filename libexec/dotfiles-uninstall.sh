@@ -4,7 +4,7 @@ KERNEL="$(uname -s)"
 source "$DOTFILES_ROOT/lib/config.sh"
 source "$DOTFILES_ROOT/lib/utils.sh"
 
-function uninstall-from-linux() {
+function uninstall() {
   target_files=''
 
   for ((i = 0; i < ${#INSTALL_CONFIGS[@]}; i++)); do
@@ -38,8 +38,8 @@ function uninstall-from-linux() {
 }
 
 case "$KERNEL" in
-  'Linux' )
-    uninstall-from-linux
+  'Linux' | 'Drawin' )
+    uninstall
     ;;
   * )
     error "'$KERNEL' is not supported."

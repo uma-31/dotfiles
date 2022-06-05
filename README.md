@@ -5,6 +5,7 @@ My Dotfiles.
 ## Supported OS
 
 - Ubuntu (also WSL)
+- Mac OS
 
 ## Installation
 
