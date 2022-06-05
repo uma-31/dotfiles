@@ -1,0 +1,10 @@
+"--------------------
+" Action
+"--------------------
+set virtualedit=onemore
+
+"--------------------
+" Visual
+"--------------------
+set number
+syntax enable
