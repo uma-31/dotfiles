@@ -14,7 +14,13 @@ function install() {
     target_path="$(echo "$config" | get-xml-content 'path')"
 
     cd "$(dirname "$target_path")"
-    ln -s "$DOTFILES_ROOT/dotfiles/$target_file" "$(basename "$target_path")"
+
+    if [ -L "$target_path" ]; then
+      echo "skip: $(basename "$target_path") is already exists."
+    else
+      ln -s "$DOTFILES_ROOT/dotfiles/$target_file" "$(basename "$target_path")"
+      echo "install: $(basename "$target_path")"
+    fi
   done
 }
 
