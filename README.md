@@ -19,7 +19,7 @@ $ git clone https://github.com/uma-31/dotfiles.git "$HOME/.dotfiles"
 
 ```shell
 $ cd "$HOME/.dotfiles"
-$ ./bin/dotfiles install
+$ ./install.sh
 ```
 
 3. Install some tools (optional)
