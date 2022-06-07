@@ -2,6 +2,17 @@ function error() {
   echo -e "\033[31merror: $1\033[m"
 }
 
+function ugrep() {
+  case "$(uname -s)" in
+    'Darwin' )
+      ggrep "$@"
+      ;;
+    * )
+      grep "$@"
+      ;;
+  esac
+}
+
 function get-xml-content() {
-  grep -oP "(?<=<$1>).*(?=<\/$1>)"
+  ugrep -oP "(?<=<$1>).*(?=<\/$1>)"
 }
