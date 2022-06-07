@@ -29,7 +29,7 @@ fi
 
 # Aliases
 alias c='clear'
-alias ls='ls --color=auto'
+alias ls='ls --color=always'
 
 # Load local zshrc
 if [ -f "$HOME/.zshrc.local" ]; then
