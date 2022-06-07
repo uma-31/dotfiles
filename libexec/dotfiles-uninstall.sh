@@ -40,7 +40,7 @@ function uninstall() {
 }
 
 case "$KERNEL" in
-  'Linux' | 'Drawin' )
+  'Linux' | 'Darwin' )
     uninstall
     ;;
   * )

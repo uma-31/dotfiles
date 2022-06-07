@@ -25,7 +25,7 @@ function install() {
 }
 
 case "$KERNEL" in
-  'Linux' | 'Drawin' )
+  'Linux' | 'Darwin' )
     install
     ;;
   * )
