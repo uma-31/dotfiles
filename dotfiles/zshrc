@@ -27,6 +27,12 @@ if [ -d "$NODENV_ROOT" ]; then
   eval "$(nodenv init -)"
 fi
 
+# Direnv
+if type 'direnv' > /dev/null; then
+  export EDITOR='code'
+  eval "$(direnv hook zsh)"
+fi
+
 # Aliases
 alias c='clear'
 alias ls='ls --color=always'

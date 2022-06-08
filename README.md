@@ -25,22 +25,35 @@ $ ./install.sh
 3. Install some tools (optional)
 
 - [zplug](https://github.com/zplug/zplug)
+
   - Plugin manager for zsh
   - Install with:
     ```shell
     $ git clone https://github.com/zplug/zplug.git "$HOME/.zplug"
     ```
+
 - [pyenv](https://github.com/pyenv/pyenv)
+
   - Version manager for python
   - Install with:
     ```shell
     $ git clone https://github.com/pyenv/pyenv.git "$HOME/.pyenv"
     ```
+
 - [nodenv](https://github.com/nodenv/nodenv)
+
   - Version manager for node
   - Install with:
     ```shell
     $ git clone https://github.com/nodenv/nodenv.git "$HOME/.nodenv"
+    ```
+
+- [direnv](https://github.com/direnv/direnv)
+  - Load and unload environment variables depending on the current directory.
+  - Install with:
+    ```shell
+    $ sudo apt install direnv # Ubuntu
+    $ brew install direnv     # Mac
     ```
 
 4. Restart terminal or source `.zshrc`
