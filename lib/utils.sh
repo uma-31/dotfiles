@@ -24,6 +24,22 @@ function estimate-os() {
   fi
 }
 
+# This function works only in WSL.
+function get-windows-home() {
+  WINDOWS_USER_NAME="$(powershell.exe '$env:UserName' | sed -e 's/\r//')"
+
+  for c in {a..z}; do
+    windows_home_candidate="/mnt/$c/Users/$WINDOWS_USER_NAME"
+
+    if [ -e "$windows_home_candidate" ]; then
+      echo "$windows_home_candidate"
+      return 0
+    fi
+  done
+
+  return 1
+}
+
 function error() {
   echo -e "\033[31merror: $1\033[m"
 }
