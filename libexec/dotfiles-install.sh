@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 DOTFILES_ROOT="$(cd "$(dirname "$(realpath "$0")")"; cd ..; pwd)"
-KERNEL="$(uname -s)"
 
 source "$DOTFILES_ROOT/lib/config.sh"
 source "$DOTFILES_ROOT/lib/utils.sh"
+
+OS_NAME="$(estimate-os)"
 
 function install() {
   for ((i = 0; i < ${#INSTALL_CONFIGS[@]}; i++)); do
@@ -24,11 +25,11 @@ function install() {
   done
 }
 
-case "$KERNEL" in
-  'Linux' | 'Darwin' )
+case "$OS_NAME" in
+  'mac' | 'ubuntu' | 'wsl-ubuntu' )
     install
     ;;
   * )
-    error "'$KERNEL' is not supported."
+    error "Unsupported OS: '$OS_NAME'"
     ;;
 esac

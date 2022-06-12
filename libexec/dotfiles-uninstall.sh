@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 DOTFILES_ROOT="$(cd "$(dirname "$0")"; cd ..; pwd)"
-KERNEL="$(uname -s)"
 
 source "$DOTFILES_ROOT/lib/config.sh"
 source "$DOTFILES_ROOT/lib/utils.sh"
+
+OS_NAME="$(estimate-os)"
 
 function uninstall() {
   target_files=''
@@ -39,8 +40,8 @@ function uninstall() {
   echo 'Finished uninstalling.'
 }
 
-case "$KERNEL" in
-  'Linux' | 'Darwin' )
+case "$OS_NAME" in
+  'mac' | 'ubuntu' | 'wsl-ubuntu' )
     uninstall
     ;;
   * )
