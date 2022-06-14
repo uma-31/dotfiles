@@ -55,11 +55,20 @@ $ ./install.sh
     ```
 
 - [direnv](https://github.com/direnv/direnv)
+
   - Load and unload environment variables depending on the current directory.
   - Install with:
     ```shell
     $ sudo apt install direnv # Ubuntu
     $ brew install direnv     # Mac
+    ```
+
+- [project-templates](https://github.com/uma-31/project-templates)
+
+  - My project templates.
+  - Install with:
+    ```shell
+    $ git clone https://github.com/uma-31/project-templates.git "$HOME/.project-templates"
     ```
 
 4. Restart terminal or source `.zshrc`

@@ -36,6 +36,9 @@ if type 'direnv' > /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
+# Project Templates
+export PATH="$HOME/.project-templates/bin:$PATH"
+
 # Aliases
 alias c='clear'
 alias ls='ls --color=always'
