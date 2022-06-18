@@ -3,10 +3,14 @@
 "--------------------
 set virtualedit=onemore
 
-" Subsitute four spaces for tab
+" Substitute four spaces for tab
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+" Enable spell check
+set spell
+set spelllang=en,cjk
 
 "--------------------
 " Visual
