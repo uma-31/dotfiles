@@ -1,5 +1,5 @@
 "--------------------
-" Action
+" Behaviour
 "--------------------
 set virtualedit=onemore
 
@@ -7,4 +7,25 @@ set virtualedit=onemore
 " Visual
 "--------------------
 set number
-syntax enable
+
+syntax on
+colorscheme onedark
+
+let g:airline_theme='base16_solarized_dark'
+
+"--------------------
+" Plugins
+"--------------------
+call plug#begin()
+
+Plug 'joshdick/onedark.vim', {'do': 'mkdir -p ~/.vim/colors/ && cp colors/onedark.vim ~/.vim/colors/; mkdir -p ~/.vim/autoload/ && cp autoload/onedark.vim ~/.vim/autoload/'}
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'preservim/nerdtree'
+
+Plug 'airblade/vim-gitgutter'
+
+call plug#end()
+
