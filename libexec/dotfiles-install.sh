@@ -8,26 +8,27 @@ source "$DOTFILES_ROOT/lib/utils.sh"
 OS_NAME="$(estimate-os)"
 
 function install() {
-  for ((i = 0; i < ${#INSTALL_CONFIGS[@]}; i++)); do
-    config="${INSTALL_CONFIGS[$i]}"
+  get-install-configs "$1" | while read config; do
+    entity="$DOTFILES_ROOT/dotfiles/$(echo "$config" | get-xml-content 'entity')"
+    target="$(echo "$config" | get-xml-content 'target')"
+    target="$(eval "echo $target")"
 
-    target_file="$(echo "$config" | get-xml-content 'file')"
-    target_path="$(echo "$config" | get-xml-content 'path')"
+    cd "$(dirname "$target")"
 
-    cd "$(dirname "$target_path")"
-
-    if [ -L "$target_path" ]; then
-      echo "skip: $(basename "$target_path") is already exists."
+    if [ -f "$target" ]; then
+      echo "skip: '$target' is already exists."
+    elif [ -L "$target" ]; then
+      echo "skip: '$target' is already installed."
     else
-      ln -s "$DOTFILES_ROOT/dotfiles/$target_file" "$(basename "$target_path")"
-      echo "install: $(basename "$target_path")"
+      ln -s "$entity" "$(basename "$target")"
+      echo "install: '$(basename "$entity")' to '$target'"
     fi
   done
 }
 
 case "$OS_NAME" in
   'mac' | 'ubuntu' | 'wsl-ubuntu' )
-    install
+    install "$OS_NAME"
     ;;
   * )
     error "Unsupported OS: '$OS_NAME'"

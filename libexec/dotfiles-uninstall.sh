@@ -8,31 +8,29 @@ source "$DOTFILES_ROOT/lib/utils.sh"
 OS_NAME="$(estimate-os)"
 
 function uninstall() {
-  target_files=''
+  targets=()
 
-  for ((i = 0; i < ${#INSTALL_CONFIGS[@]}; i++)); do
-    config="${INSTALL_CONFIGS[$i]}"
-    dotfile_path="$(echo "$config" | get-xml-content 'path')"
+   while read config; do
+    target="$(echo "$config" | get-xml-content 'target')"
+    target="$(eval "echo $target")"
 
-    if [ -L "$dotfile_path" ]; then
-      echo "$dotfile_path"
-      target_files="$target_files $dotfile_path"
+    if [ -L "$target" ]; then
+      echo "$target"
+      targets=("${targets[@]}" "$target")
     fi
-  done
+  done < <(get-install-configs "$1")
 
-  if [ "$target_files" = '' ]; then
+  if [ ${#targets[@]} = 0 ]; then
     echo 'There is nothing file to delete.'
     exit 0
   fi
-
-  uninstall_list=($target_files)
 
   read -p "Are you sure you want to delete these files? [y/N]: " ans
 
   case "$ans" in
     'y' | 'Y' )
-      for file_path in "${uninstall_list[@]}"; do
-        rm -f "$file_path"
+      for target in "${targets[@]}"; do
+        rm -f "$target"
       done
       ;;
   esac
@@ -42,7 +40,7 @@ function uninstall() {
 
 case "$OS_NAME" in
   'mac' | 'ubuntu' | 'wsl-ubuntu' )
-    uninstall
+    uninstall "$OS_NAME"
     ;;
   * )
     error "'$KERNEL' is not supported."

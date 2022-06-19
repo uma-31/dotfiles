@@ -1,0 +1,16 @@
+<config>
+  <common>
+    <dotfile>
+      <entity>vimrc</entity>
+      <target>$HOME/.vimrc</target>
+    </dotfile>
+    <dotfile>
+      <entity>zplug.zshrc</entity>
+      <target>$HOME/.zplug.zshrc</target>
+    </dotfile>
+    <dotfile>
+      <entity>zshrc</entity>
+      <target>$HOME/.zshrc</target>
+    </dotfile>
+  </common>
+</config>
